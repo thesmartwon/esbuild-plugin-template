@@ -1,5 +1,5 @@
-import { writeFileSync } from 'fs'
-import { join } from 'path'
+const { writeFileSync } = require('fs')
+const { join } = require('path')
 
 const name = 'esbuild-plugin-template'
 const defaultUserTemplate = `<!DOCTYPE html>
@@ -44,7 +44,7 @@ function template(userTemplate, result, initialOptions) {
 	}
 }
 
-export default function templatePlugin(userTemplates = [{ filename: 'index.html' }]) {
+function templatePlugin(userTemplates = [{ filename: 'index.html' }]) {
 	return {
 		name,
 		setup(build) {
@@ -76,3 +76,5 @@ export default function templatePlugin(userTemplates = [{ filename: 'index.html'
 		},
 	};
 };
+
+module.exports = templatePlugin
