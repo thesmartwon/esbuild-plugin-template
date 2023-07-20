@@ -12,7 +12,7 @@ plugins: [
 ]
 ```
 
-If templateStringOrFn is a function it is passed `esbuildResult, esbuildInitialOptions`.
+If templateStringOrFn is a function it is passed `esbuildResult, esbuildInitialOptions` and must return a string.
 
 If templateStringOrFn is a string `<--js-->` and `<--css-->` are replaced with all emitted js and css files.
 
