@@ -1,6 +1,6 @@
 {
   "name": "esbuild-plugin-template",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Plugin to output templated files from esbuild",
   "main": "index.js",
   "repository": "https://github.com/thesmartwon/esbuild-plugin-template.git",
@@ -16,6 +16,6 @@
   },
   "homepage": "https://github.com/thesmartwon/esbuild-plugin-template#readme",
   "peerDependencies": {
-    "esbuild": "^0.18.0"
+    "esbuild": "0.*"
   }
 }

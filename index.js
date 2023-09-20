@@ -1,17 +1,19 @@
 const { writeFileSync } = require('fs')
 const { join } = require('path')
 
+const cssPlaceholder = '<!--css-->';
+const jsPlaceholder = '<!--js-->';
 const name = 'esbuild-plugin-template'
 const defaultUserTemplate = `<!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
 		<title>${name}</title>
-		<!--css-->
+		${cssPlaceholder}
 	</head>
 	<body>
 		<div id="root"></div>
-		<!--js-->
+		${jsPlaceholder}
 	</body>
 </html>`
 
@@ -24,11 +26,11 @@ function template(userTemplate, result, initialOptions) {
 		const scripts = outputs.filter(f => f.endsWith('.js')).map(stripBase);
 
 		return userTemplate
-			.replace('<--css-->', stylesheets
+			.replace(cssPlaceholder, stylesheets
 				.map(f => `<link rel="stylesheet" href="${f}"></script>`)
 				.join('\n')
 			)
-			.replace('<--js-->', scripts
+			.replace(jsPlaceholder, scripts
 				.map(f => `<script src="${f}"></script>`)
 				.join('\n')
 			)
